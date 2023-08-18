@@ -25,15 +25,24 @@
 #         return prev
 
 # Recursively
-class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+# class Solution:
+#     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
-        if head == None or head.next == None:
-            return head
+#         if head == None or head.next == None:
+#             return head
 
-        new_head = self.reverseList(head.next)
-        head.next.next = head
-        head.next = None
+#         new_head = self.reverseList(head.next)
+#         head.next.next = head
+#         head.next = None
 
-        return new_head
+#         return new_head
+
+# Recursively 2
+class Solution:
+    def reverseList(self, head: Optional[ListNode], prev=None) -> Optional[ListNode]:
+        if head == None: return prev
+
+        next_head = head.next
+        head.next = prev
+        return self.reverseList(next_head, head)
             
