@@ -38,3 +38,25 @@ class Solution:
             i += 1
 
         return new.next
+
+# Slower but cleaner solution
+# class Solution:
+#     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+#         dummy=ListNode(-1,head)
+        
+#         # pointers
+#         fast = head
+#         slow = dummy
+        
+#         # Get fast to n
+#         for i in range(n-1):
+#             fast=fast.next
+        
+#         # Move forward until fast reaches None
+#         while fast.next:
+#             fast=fast.next
+#             slow=slow.next
+
+#         # Remove the n (from last) node
+#         slow.next=slow.next.next
+#         return dummy.next
